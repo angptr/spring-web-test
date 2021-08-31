@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Home Page</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;	
+			border-collapse: collapse;		
+		}
+		th{
+			padding: 5px;
+		}
+		td{
+			padding: 10px;
+		}
+</style>
+</head>
+<body>
+	<header>
+		<h2> Welcome!! </h2>		
+	</header>	
+	<div class="flower-table">	
+		<table>
+			<thead>
+				<tr>
+					<th>Flower name</th>
+					<th>Flower origin</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="flower: ${listFlowers}">
+					<td th:text="${flower.name}"></td>
+					<td th:text="${flower.origin}"></td>
+					<td><a th:href="@{'/flowers/edit/'+ ${flower.id}}">Edit</a></td>
+					<td><a th:href="@{'/flowers/delete/'+ ${flower.id}}">Delete</a></td>
+				</tr>
+			</tbody>					
+		</table>
+	</div>
+	<div>
+		<a th:href="@{/flowers/add}"> Add flower </a>
+	</div>
+</body>
+</html>

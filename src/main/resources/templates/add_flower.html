@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Add Flower Form</title>
+</head>
+<body>
+	<header>
+		<h2> Add new flower</h2>		
+	</header>	
+	<main>
+		<form action="#" th:action="@{/flowers/save}" th:object="${flower}" method="POST">
+			<input type="text" th:field="*{name}" placeholder="flower name"></input>
+			<input type="text" th:field="*{origin}" placeholder="flower origin"></input>
+			<button type="submit">Add Flower</button> 
+		</form>
+	</main>
+</body>
+</html>
